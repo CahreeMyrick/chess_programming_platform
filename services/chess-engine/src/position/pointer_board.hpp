@@ -15,6 +15,8 @@ public:
     void set_piece(int sq, chess::Piece p) override;
     void clear_square(int sq) override;
 
+    std::unique_ptr<chess::Board> clone() const override;
+
 private:
     std::array<std::unique_ptr<PieceObject>, 64> board_{};
 };

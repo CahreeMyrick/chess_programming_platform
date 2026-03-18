@@ -1,4 +1,4 @@
-#include "position/pointer_board.hpp"
+#include "pointer_board.hpp"
 
 namespace chess::pointerboard {
 
@@ -21,6 +21,18 @@ void PointerBoard::set_piece(int sq, chess::Piece p) {
 
 void PointerBoard::clear_square(int sq) {
     board_[sq].reset();
+}
+
+std::unique_ptr<chess::Board> PointerBoard::clone() const {
+    auto copy = std::make_unique<PointerBoard>();
+
+    for (int sq = 0; sq < 64; ++sq) {
+        if (board_[sq]) {
+            copy->board_[sq] = make_piece_object(board_[sq]->code());
+        }
+    }
+
+    return copy;
 }
 
 } // namespace chess::pointerboard

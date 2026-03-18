@@ -17,6 +17,8 @@ public:
         clear_square(from);
         set_piece(to, p);
     }
+
+    virtual std::unique_ptr<Board> clone() const = 0;
 };
 
 } // namespace chess

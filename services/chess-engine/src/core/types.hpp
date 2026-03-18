@@ -38,8 +38,34 @@ constexpr int make_sq(int file, int rank) {
     return rank * 8 + file;
 }
 
+constexpr int file_of(int sq) {
+    return sq % 8;
+}
+
+constexpr int rank_of(int sq) {
+    return sq / 8;
+}
+
 constexpr Square to_square(int sq) {
-    return Square{sq / 8, sq % 8};
+    return Square{rank_of(sq), file_of(sq)};
+}
+
+constexpr bool is_empty(Piece p) {
+    return p == Piece::Empty;
+}
+
+constexpr bool is_white(Piece p) {
+    return p == Piece::WK || p == Piece::WQ || p == Piece::WN ||
+           p == Piece::WB || p == Piece::WP || p == Piece::WR;
+}
+
+constexpr bool is_black(Piece p) {
+    return p == Piece::BK || p == Piece::BQ || p == Piece::BN ||
+           p == Piece::BB || p == Piece::BP || p == Piece::BR;
+}
+
+constexpr Color other(Color c) {
+    return c == Color::White ? Color::Black : Color::White;
 }
 
 struct PiecePlacement {

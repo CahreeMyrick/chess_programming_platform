@@ -4,13 +4,29 @@ project(chess_engine LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(chess_engine
-    src/scripts/main.cpp
+set(CHESS_ENGINE_SOURCES
     src/position/array_board.cpp
     src/position/position.cpp
     src/position/pointer_board.cpp
     src/position/piece.cpp
+    src/position/bitboard.cpp
+    src/position/board_factory.cpp
+    src/rules/rules.cpp
+    src/movegen/movegen.cpp
+    src/evaluation/eval.cpp
+    src/search/search.cpp
     src/render/render.cpp
 )
 
+add_executable(chess_engine
+    src/scripts/main.cpp
+    ${CHESS_ENGINE_SOURCES}
+)
+
+add_executable(chess_benchmark
+    src/scripts/benchmark_main.cpp
+    ${CHESS_ENGINE_SOURCES}
+)
+
 target_include_directories(chess_engine PRIVATE src)
+target_include_directories(chess_benchmark PRIVATE src)

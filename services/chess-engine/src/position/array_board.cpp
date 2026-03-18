@@ -18,4 +18,8 @@ void ArrayBoard::clear_square(int sq) {
     board_[sq] = Piece::Empty;
 }
 
+std::unique_ptr<Board> ArrayBoard::clone() const {
+    return std::make_unique<ArrayBoard>(*this);
+}
+
 } // namespace chess
