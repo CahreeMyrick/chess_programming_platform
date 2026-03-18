@@ -7,7 +7,7 @@
 - `docs/` - documentation
 
 ## Current status
-- `services/chess-engine/` benchmarking completed - run instructiomn below
+- `services/chess-engine/` benchmarking completed - run instructions below
 - `services/puzzle-analysis/`  not added yet
 - `services/pdf-scanner/`  not added yet
 - `services/camera-scanner/`  not added yet
@@ -45,5 +45,44 @@ are shared across backends via a common interface.
 
 - **Conclusion:**  
   Bitboards alone do **not** provide a performance advantage unless the *entire engine pipeline* (especially move generation and attack detection) is redesigned to leverage bitwise parallelism.
+
+
+---
+
+## Build & Run
+
+### Prerequisites
+
+- C++17 or later
+- CMake ≥ 3.15
+- A C++ compiler:
+  - macOS: `clang++`
+  - Linux: `g++`
+  - Windows: MSVC or MinGW
+
+---
+
+### Build
+
+Clone the repository and build using CMake:
+
+```bash
+git clone <your-repo-url>
+cd chess-training-platform
+
+mkdir -p build
+cd build
+
+cmake ..
+cmake --build .
+```
+
+### Executables
+Runs the main engine (move generation, search, etc.)
+```./chess_engine```
+
+Runs performance comparisons across board backends:
+```./chess_benchmark```
+
 
   
