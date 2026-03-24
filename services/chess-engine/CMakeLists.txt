@@ -17,6 +17,7 @@ set(CHESS_ENGINE_SOURCES
     src/movegen/movegen.cpp
     src/evaluation/eval.cpp
     src/search/search.cpp
+    src/search/search_bb.cpp
     src/render/render.cpp
 )
 
