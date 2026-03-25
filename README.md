@@ -1,2 +1,2 @@
-# Chess Training Platform
+# Chess Programming Platform
 
