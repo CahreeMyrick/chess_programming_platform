@@ -45,5 +45,30 @@ std::optional<std::pair<int,int>> Parse::two_squares(const std::string& line0) {
     return std::make_pair(*sqa, *sqb);
 }
 
+
+std::string Parse::square_to_string(int sq) {
+    char file = static_cast<char>('a' + file_of(sq));
+    char rank = static_cast<char>('1' + rank_of(sq));
+    std::string out;
+    out.push_back(file);
+    out.push_back(rank);
+    return out;
+}
+
+std::string Parse::move_to_string(const Move& m) {
+    std::string s = square_to_string(m.from) + square_to_string(m.to);
+    if (m.promo != PROMO_NONE) {
+        switch (m.promo) {
+            case PROMO_Q: s += 'q'; break;
+            case PROMO_R: s += 'r'; break;
+            case PROMO_B: s += 'b'; break;
+            case PROMO_N: s += 'n'; break;
+            default:                break;
+        }
+    }
+    return s;
+
+}
+
 } // namespace chess
 

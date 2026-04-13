@@ -18,4 +18,4 @@ enum class BoardType {
  */
 std::unique_ptr<Board> make_board(BoardType type);
 
-} // namespace chess
+}

@@ -13,12 +13,16 @@ set(CHESS_ENGINE_SOURCES
     src/position/bitboard.cpp
     src/position/bb_position.cpp
     src/position/board_factory.cpp
+    src/parsing/parse.cpp
     src/rules/rules.cpp
     src/movegen/movegen.cpp
     src/evaluation/eval.cpp
     src/search/search.cpp
     src/search/search_bb.cpp
     src/render/render.cpp
+    src/openings/opening_book.cpp
+    src/openings/zobrist.cpp
+    src/selfplay/selfplay.cpp
 )
 
 add_executable(chess_engine
@@ -31,8 +35,13 @@ add_executable(chess_benchmark
     ${CHESS_ENGINE_SOURCES}
 )
 
+add_executable(chess_self_play
+    src/scripts/run_self_play.cpp
+    ${CHESS_ENGINE_SOURCES}
+)
 target_include_directories(chess_engine PRIVATE src)
 target_include_directories(chess_benchmark PRIVATE src)
+target_include_directories(chess_self_play PRIVATE src)
 
 # --- Google Test ---
 include(FetchContent)

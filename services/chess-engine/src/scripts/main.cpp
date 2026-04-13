@@ -6,10 +6,12 @@
 #include "position/position.hpp"
 #include "render/render.hpp"
 #include "search/search.hpp"
+#include "search/search_bb.hpp"
 #include "movegen/movegen.hpp"
 #include "rules/rules.hpp"
 #include "core/types.hpp"
 #include "core/move.hpp"
+
 
 namespace chess {
 

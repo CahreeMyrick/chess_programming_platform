@@ -1,5 +1,4 @@
 #pragma once
-
 #include "core/move.hpp"
 #include "position/bb_position.hpp"
 #include "search/search.hpp"  // reuse SearchResult
@@ -10,6 +9,9 @@ class SearchBB {
 public:
     // Alpha-beta search using do_move / undo_move — no position copies.
     static SearchResult minimax(BitboardPosition& pos, int depth);
+
+    // Clear the transposition table between games
+    static void clear_tt();
 };
 
 } // namespace chess
