@@ -23,6 +23,9 @@ set(CHESS_ENGINE_SOURCES
     src/openings/opening_book.cpp
     src/openings/zobrist.cpp
     src/selfplay/selfplay.cpp
+    src/search/search_nn.cpp
+    src/evaluation/nn_eval.cpp
+    src/selfplay/match.cpp
 )
 
 add_executable(chess_engine
@@ -39,6 +42,8 @@ add_executable(chess_self_play
     src/scripts/run_self_play.cpp
     ${CHESS_ENGINE_SOURCES}
 )
+
+
 target_include_directories(chess_engine PRIVATE src)
 target_include_directories(chess_benchmark PRIVATE src)
 target_include_directories(chess_self_play PRIVATE src)

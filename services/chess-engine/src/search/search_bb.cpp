@@ -139,7 +139,8 @@ static int alphabeta_bb(BitboardPosition& pos, int depth, int alpha, int beta, i
     }
 
     if (depth == 0) {
-        return quiesce(pos, alpha, beta);
+        // return quiesce(pos, alpha, beta);
+        return Eval::evaluate(pos);
     }
 
     MoveList moves;
