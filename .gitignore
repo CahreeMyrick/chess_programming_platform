@@ -21,3 +21,5 @@ out/
 # IDE
 .vscode/
 .idea/
+
+*.csv
